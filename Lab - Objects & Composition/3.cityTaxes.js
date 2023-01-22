@@ -1,0 +1,31 @@
+function cityTaxes(name,population,treasury) {
+    const result = {
+        name: name,
+        population:population,
+        treasury:treasury,
+        taxRate : 10,
+        collectTaxes()  {
+            this.treasury += population * this.taxRate;
+        },
+        applyGrowth(percentage) {
+            this.population += this.population * percentage /100;
+        },
+        applyRecession(percentage) {
+            this.treasury -= this.treasury * percentage/100;
+
+        },
+
+
+
+    }
+    return result;
+}
+
+
+cityTaxes('Santo Domingo',12000,23500);
+console.log('--------------');
+const city =cityTaxes('Tortuga',7000,15000);
+city.collectTaxes();
+console.log(city.treasury);
+city.applyGrowth(5);
+console.log(city.population); 
